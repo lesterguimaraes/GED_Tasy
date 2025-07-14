@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block title %}Grupos de Documentos{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-4">Gerenciar Grupos e Subpastas de Documentos</h2>
+
+    <div class="card p-4 mb-5 shadow-sm">
+        <h5>Cadastrar Novo Grupo ou Pasta</h5>
+        <form method="POST" class="mt-3">
+            <div class="mb-3">
+                <label for="ds_grupo_documento" class="form-label">Nome do Grupo ou Pasta</label>
+                <input type="text" class="form-control" name="ds_grupo_documento" id="ds_grupo_documento" required>
+            </div>
+            <div class="mb-3">
+                <label for="id_grupo_pai" class="form-label">Grupo Pai (opcional)</label>
+                <select class="form-select" name="id_grupo_pai" id="id_grupo_pai">
+                    <option value="">-- Nenhum (grupo principal) --</option>
+                    {% for grupo in grupos_pai %}
+                        <option value="{{ grupo.id_grupo_documento }}">{{ grupo.ds_grupo_documento }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
+        </form>
+    </div>
+
+    <h4>Grupos e Subpastas Cadastrados</h4>
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover mt-3 align-middle">
+            <thead class="table-light">
+                <tr>
+                    <th>Nome</th>
+                    <th>Grupo Pai</th>
+                    <th>Status</th>
+                    <th>Login</th>
+                    <th>Data de Cadastro</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for grupo in grupos %}
+                <tr>
+                    <td>{{ grupo.ds_grupo_documento }}</td>
+                    <td>{{ grupo.nome_pai if grupo.nome_pai else '-' }}</td>
+                    <td>
+                        {% if grupo.status == 'A' %}
+                            <span class="badge bg-success">Ativo</span>
+                        {% else %}
+                            <span class="badge bg-secondary">Inativo</span>
+                        {% endif %}
+                    </td>
+                    <td>{{ grupo.login }}</td>
+                    <td>{{ grupo.dt_cadastro.strftime('%d/%m/%Y %H:%M') if grupo.dt_cadastro else '-' }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

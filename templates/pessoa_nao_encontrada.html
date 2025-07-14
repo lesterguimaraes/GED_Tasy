@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Pessoa não encontrada{% endblock %}
+
+{% block content %}
+<div class="alert alert-warning mt-4" role="alert">
+    <h4 class="alert-heading">Pessoa não encontrada</h4>
+    <p>Não foi possível localizar registros com o código informado: <strong>{{ cd_pessoa_fisica }}</strong>.</p>
+    <hr>
+    <a href="/" class="btn btn-primary">Voltar à página inicial</a>
+</div>
+{% endblock %}
+

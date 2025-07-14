@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block title %}Cadastro de Empresas{% endblock %}
+
+{% block content %}
+<h2>{% if empresa_editar %}Editar Empresa{% else %}Nova Empresa{% endif %}</h2>
+
+<form method="POST" action="/empresas">
+  {% if empresa_editar %}
+    <input type="hidden" name="empresa_id" value="{{ empresa_editar.id }}">
+  {% endif %}
+  
+  <div class="mb-3">
+    <label for="nome" class="form-label">Nome</label>
+    <input type="text" id="nome" name="nome" class="form-control" required
+           value="{{ empresa_editar.nome if empresa_editar else '' }}" />
+  </div>
+  <div class="mb-3">
+    <label for="descricao" class="form-label">Descrição</label>
+    <textarea id="descricao" name="descricao" class="form-control">{{ empresa_editar.descricao if empresa_editar else '' }}</textarea>
+  </div>
+  <button type="submit" class="btn btn-success">
+    {% if empresa_editar %}Atualizar Empresa{% else %}Adicionar Empresa{% endif %}
+  </button>
+  {% if empresa_editar %}
+    <a href="/empresas" class="btn btn-secondary">Cancelar</a>
+  {% endif %}
+</form>
+
+<hr>
+
+<h2>Empresas Cadastradas</h2>
+
+<table class="table table-bordered">
+  <thead>
+    <tr><th>ID</th><th>Nome</th><th>Descrição</th><th>Status</th><th>Ações</th></tr>
+  </thead>
+  <tbody>
+    {% for empresa in empresas %}
+    <tr>
+      <td>{{ empresa.id }}</td>
+      <td>{{ empresa.nome }}</td>
+      <td>{{ empresa.descricao }}</td>
+      <td>{{ 'Ativa' if empresa.status == 'A' else 'Inativa' }}</td>
+      <td>
+        <a href="{{ url_for('empresas', editar=empresa.id) }}" class="btn btn-sm btn-warning">Editar</a>
+        {% if empresa.status == 'A' %}
+          <a href="{{ url_for('empresas', inativar=empresa.id) }}" 
+             class="btn btn-sm btn-danger"
+             onclick="return confirm('Deseja realmente inativar esta empresa?')">
+            Inativar
+          </a>
+        {% else %}
+          <a href="{{ url_for('empresas', ativar=empresa.id) }}"
+             class="btn btn-sm btn-success"
+             onclick="return confirm('Deseja realmente ativar esta empresa?')">
+            Ativar
+          </a>
+        {% endif %}
+      </td>
+    </tr>
+    {% else %}
+    <tr><td colspan="5">Nenhuma empresa cadastrada.</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,36 @@
+#version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: ged
+    ports:
+      - "7050:6000"
+    depends_on:
+      - db
+    env_file:
+      - .env
+    environment:
+      - SECRET_KEY=${SECRET_KEY}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+    volumes:
+     #- ./static/uploads:/app/static/uploads
+     - /opt/ged/static/uploads:/app/static/uploads  ## mesmo acima, porém no samba, unidade tem que estar montada mount -t cifs //192.168.25.6/GED/ /opt/ged/static/uploads/ -o username=hbm,password=SENHA
+     - /opt/ged/logs:/opt/ged/logs
+
+  db:
+    image: mysql:5.7
+    container_name: ged_db
+    ports:
+      - "3366:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      TZ: America/Sao_Paulo
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./mysql-init:/docker-entrypoint-initdb.d
+
+volumes:
+  db_data:

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Sincronizar Pacientes{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Sincronizar Pacientes Oracle → MySQL</h2>
+    <form method="post">
+        <button class="btn btn-primary" type="submit">Iniciar Sincronização</button>
+    </form>
+
+    {% if mensagem %}
+        <div class="alert alert-info mt-3">
+            {{ mensagem }}
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

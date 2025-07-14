@@ -1,0 +1,109 @@
+
+[09-06-2025 09:08:23] Iniciando backup do banco 'ged'
+[09-06-2025 09:08:23] ✅ Backup gerado com sucesso: backup_ged_09062025_090823.sql
+[09-06-2025 09:08:24] 🔄 Limpeza de backups antigos concluída. Mantidos os 5 mais recentes.
+[09-06-2025 09:09:29] Iniciando backup do banco 'ged'
+[09-06-2025 09:09:29] ✅ Backup gerado com sucesso: backup_ged_09062025_090929.sql
+[09-06-2025 09:09:29] 🔄 Limpeza de backups antigos concluída. Mantidos os 5 mais recentes.
+[09-06-2025 09:20:57] Iniciando backup do banco 'ged'
+[09-06-2025 09:20:58] ✅ Backup gerado com sucesso: backup_ged_09062025_092057.sql
+[09-06-2025 09:20:58] 🔄 Limpeza de backups antigos concluída. Mantidos os 5 mais recentes.
+[10-06-2025 02:00:01] Iniciando backup do banco 'ged'
+[10-06-2025 02:00:02] ✅ Backup gerado com sucesso: backup_ged_10062025_020001.sql
+[10-06-2025 02:00:02] 🔄 Limpeza de backups antigos concluída. Mantidos os 5 mais recentes.
+[11-06-2025 02:00:01] Iniciando backup do banco 'ged'
+[11-06-2025 02:00:02] ✅ Backup gerado com sucesso: backup_ged_11062025_020001.sql
+[11-06-2025 02:00:02] 🔄 Limpeza de backups antigos concluída. Mantidos os 5 mais recentes.
+[12-06-2025 02:00:01] Iniciando backup do banco 'ged'
+[12-06-2025 02:00:02] ✅ Backup gerado com sucesso: backup_ged_12062025_020001.sql
+[12-06-2025 02:00:02] 🔄 Limpeza de backups antigos concluída. Mantidos os 5 mais recentes.
+[13-06-2025 02:00:01] Iniciando backup do banco 'ged'
+[13-06-2025 02:00:02] ✅ Backup gerado com sucesso: backup_ged_13062025_020001.sql
+[13-06-2025 02:00:02] 🔄 Limpeza de backups antigos concluída. Mantidos os 5 mais recentes.
+[14-06-2025 02:00:01] Iniciando backup do banco 'ged'
+[14-06-2025 02:00:03] ✅ Backup gerado com sucesso: backup_ged_14062025_020001.sql
+[14-06-2025 02:00:03] 🔄 Limpeza de backups antigos concluída. Mantidos os 5 mais recentes.
+[15-06-2025 02:00:01] Iniciando backup do banco 'ged'
+[15-06-2025 02:00:02] ✅ Backup gerado com sucesso: backup_ged_15062025_020001.sql
+[15-06-2025 02:00:02] 🔄 Limpeza de backups antigos concluída. Mantidos os 5 mais recentes.
+[16-06-2025 02:00:01] Iniciando backup do banco 'ged'
+[16-06-2025 02:00:02] ✅ Backup gerado com sucesso: backup_ged_16062025_020001.sql
+[16-06-2025 02:00:02] 🔄 Limpeza de backups antigos concluída. Mantidos os 5 mais recentes.
+[17-06-2025 02:00:01] Iniciando backup do banco 'ged'
+[17-06-2025 02:00:02] ✅ Backup gerado com sucesso: backup_ged_17062025_020001.sql
+[17-06-2025 02:00:02] 🔄 Limpeza de backups antigos concluída. Mantidos os 5 mais recentes.
+[18-06-2025 02:00:01] Iniciando backup do banco 'ged'
+[18-06-2025 02:00:02] ✅ Backup gerado com sucesso: backup_ged_18062025_020001.sql
+[18-06-2025 02:00:02] 🔄 Limpeza de backups antigos concluída. Mantidos os 5 mais recentes.
+[19-06-2025 02:00:01] Iniciando backup do banco 'ged'
+[19-06-2025 02:00:02] ✅ Backup gerado com sucesso: backup_ged_19062025_020001.sql
+[19-06-2025 02:00:02] 🔄 Limpeza de backups antigos concluída. Mantidos os 5 mais recentes.
+[20-06-2025 02:00:01] Iniciando backup do banco 'ged'
+[20-06-2025 02:00:02] ✅ Backup gerado com sucesso: backup_ged_20062025_020001.sql
+[20-06-2025 02:00:02] 🔄 Limpeza de backups antigos concluída. Mantidos os 5 mais recentes.
+[21-06-2025 02:00:01] Iniciando backup do banco 'ged'
+[21-06-2025 02:00:02] ✅ Backup gerado com sucesso: backup_ged_21062025_020001.sql
+[21-06-2025 02:00:02] 🔄 Limpeza de backups antigos concluída. Mantidos os 5 mais recentes.
+[22-06-2025 02:00:01] Iniciando backup do banco 'ged'
+[22-06-2025 02:00:01] ✅ Backup gerado com sucesso: backup_ged_22062025_020001.sql
+[22-06-2025 02:00:01] 🔄 Limpeza de backups antigos concluída. Mantidos os 5 mais recentes.
+[23-06-2025 02:00:02] Iniciando backup do banco 'ged'
+[23-06-2025 02:00:02] ✅ Backup gerado com sucesso: backup_ged_23062025_020002.sql
+[23-06-2025 02:00:02] 🔄 Limpeza de backups antigos concluída. Mantidos os 5 mais recentes.
+[24-06-2025 02:00:01] Iniciando backup do banco 'ged'
+[24-06-2025 02:00:02] ✅ Backup gerado com sucesso: backup_ged_24062025_020001.sql
+[24-06-2025 02:00:02] 🔄 Limpeza de backups antigos concluída. Mantidos os 5 mais recentes.
+[25-06-2025 02:00:02] Iniciando backup do banco 'ged'
+[25-06-2025 02:00:03] ✅ Backup gerado com sucesso: backup_ged_25062025_020002.sql
+[25-06-2025 02:00:03] 🔄 Limpeza de backups antigos concluída. Mantidos os 5 mais recentes.
+[26-06-2025 02:00:01] Iniciando backup do banco 'ged'
+[26-06-2025 02:00:03] ✅ Backup gerado com sucesso: backup_ged_26062025_020001.sql
+[26-06-2025 02:00:03] 🔄 Limpeza de backups antigos concluída. Mantidos os 5 mais recentes.
+[27-06-2025 02:00:01] Iniciando backup do banco 'ged'
+[27-06-2025 02:00:02] ✅ Backup gerado com sucesso: backup_ged_27062025_020001.sql
+[27-06-2025 02:00:02] 🔄 Limpeza de backups antigos concluída. Mantidos os 5 mais recentes.
+[28-06-2025 02:00:02] Iniciando backup do banco 'ged'
+[28-06-2025 02:00:15] ✅ Backup gerado com sucesso: backup_ged_28062025_020002.sql
+[28-06-2025 02:00:15] 🔄 Limpeza de backups antigos concluída. Mantidos os 5 mais recentes.
+[01-07-2025 02:00:02] Iniciando backup do banco 'ged'
+[01-07-2025 02:00:03] ✅ Backup gerado com sucesso: backup_ged_01072025_020001.sql
+[01-07-2025 02:00:04] 🔄 Limpeza de backups antigos concluída. Mantidos os 5 mais recentes.
+[02-07-2025 02:00:01] Iniciando backup do banco 'ged'
+[02-07-2025 02:00:04] ✅ Backup gerado com sucesso: backup_ged_02072025_020001.sql
+[02-07-2025 02:00:04] 🔄 Limpeza de backups antigos concluída. Mantidos os 5 mais recentes.
+[02-07-2025 10:10:39] Iniciando backup do banco 'ged'
+[02-07-2025 10:10:40] ✅ Backup gerado com sucesso: backup_ged_02072025_101039.sql
+[02-07-2025 10:10:40] 🔄 Limpeza de backups antigos concluída. Mantidos os 5 mais recentes.
+[02-07-2025 10:15:29] Iniciando backup do banco 'ged'
+[02-07-2025 10:15:30] ✅ Backup gerado com sucesso: backup_ged_02072025_101528.sql
+[02-07-2025 10:15:30] 🔄 Limpeza de backups antigos concluída. Mantidos os 5 mais recentes.
+[03-07-2025 02:00:01] Iniciando backup do banco 'ged'
+[03-07-2025 02:00:03] ✅ Backup gerado com sucesso: backup_ged_03072025_020001.sql
+[03-07-2025 02:00:03] 🔄 Limpeza de backups antigos concluída. Mantidos os 5 mais recentes.
+[04-07-2025 02:00:01] Iniciando backup do banco 'ged'
+[04-07-2025 02:00:03] ✅ Backup gerado com sucesso: backup_ged_04072025_020001.sql
+[04-07-2025 02:00:03] 🔄 Limpeza de backups antigos concluída. Mantidos os 5 mais recentes.
+[05-07-2025 02:00:01] Iniciando backup do banco 'ged'
+[05-07-2025 02:00:03] ✅ Backup gerado com sucesso: backup_ged_05072025_020001.sql
+[05-07-2025 02:00:03] 🔄 Limpeza de backups antigos concluída. Mantidos os 5 mais recentes.
+[06-07-2025 02:00:02] Iniciando backup do banco 'ged'
+[06-07-2025 02:00:05] ✅ Backup gerado com sucesso: backup_ged_06072025_020001.sql
+[06-07-2025 02:00:05] 🔄 Limpeza de backups antigos concluída. Mantidos os 5 mais recentes.
+[07-07-2025 02:00:02] Iniciando backup do banco 'ged'
+[07-07-2025 02:00:04] ✅ Backup gerado com sucesso: backup_ged_07072025_020002.sql
+[07-07-2025 02:00:04] 🔄 Limpeza de backups antigos concluída. Mantidos os 5 mais recentes.
+[08-07-2025 02:00:02] Iniciando backup do banco 'ged'
+[08-07-2025 02:00:04] ✅ Backup gerado com sucesso: backup_ged_08072025_020002.sql
+[08-07-2025 02:00:04] 🔄 Limpeza de backups antigos concluída. Mantidos os 5 mais recentes.
+[09-07-2025 02:00:01] Iniciando backup do banco 'ged'
+[09-07-2025 02:00:03] ✅ Backup gerado com sucesso: backup_ged_09072025_020001.sql
+[09-07-2025 02:00:03] 🔄 Limpeza de backups antigos concluída. Mantidos os 5 mais recentes.
+[10-07-2025 02:00:02] Iniciando backup do banco 'ged'
+[10-07-2025 02:00:04] ✅ Backup gerado com sucesso: backup_ged_10072025_020002.sql
+[10-07-2025 02:00:04] 🔄 Limpeza de backups antigos concluída. Mantidos os 5 mais recentes.
+[11-07-2025 02:00:01] Iniciando backup do banco 'ged'
+[11-07-2025 02:00:04] ✅ Backup gerado com sucesso: backup_ged_11072025_020001.sql
+[11-07-2025 02:00:04] 🔄 Limpeza de backups antigos concluída. Mantidos os 5 mais recentes.
+[12-07-2025 02:00:02] Iniciando backup do banco 'ged'
+[12-07-2025 02:00:03] ✅ Backup gerado com sucesso: backup_ged_12072025_020002.sql
+[12-07-2025 02:00:03] 🔄 Limpeza de backups antigos concluída. Mantidos os 5 mais recentes.

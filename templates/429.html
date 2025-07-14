@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Limite de Tentativas Excedido{% endblock %}
+
+{% block content %}
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+  <div class="card shadow p-4 text-center" style="max-width: 400px; width: 100%; background-color: #f8d7da; border-color: #f5c6cb;">
+    <h4 class="mb-4" style="color: #721c24;">Limite de Tentativas Excedido</h4>
+    <p style="color: #491217; font-size: 1.1rem;">
+      Você atingiu o limite de tentativas.<br>
+      Por favor, aguarde <strong>{{ retry_after }}</strong> segundos antes de tentar novamente.
+    </p>
+    <a href="{{ url_for('login') }}" class="btn btn-danger w-100 mt-3">Voltar para Login</a>
+  </div>
+</div>
+<footer class="text-center text-muted mt-4" style="font-size: 0.9rem;">
+  &copy; 2055
+</footer>
+{% endblock %}

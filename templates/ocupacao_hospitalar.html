@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}Ocupação Hopitalar{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Ocupação Hospitalar</h2>
+    <div class="table-responsive">
+        <table class="table table-hover table-bordered mt-3" id="ocupacoes-table">
+            <thead class="table-light">
+                <tr>
+                    <th>Código Pessoa Física</th>
+                    <th>Nome Paciente</th>
+                    
+                    <th>Setor</th>
+                    <th>Atendimento</th>
+                    <th>Data Internação</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in dados %}
+                <tr class="clickable-row" data-href="{{ url_for('viewer') }}?codigo={{ item.cd_pessoa_fisica }}">
+                    <td>{{ item.cd_pessoa_fisica }}</td>
+                    <td>{{ item.nm_paciente }}</td>
+                    
+                    <td>{{ item.ds_setor_atendimento }}</td>
+                    <td>{{ item.nr_atendimento }}</td>
+                    <td>{{ item.dt_internacao.strftime('%d/%m/%Y %H:%M') if item.dt_internacao else '' }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const rows = document.querySelectorAll('.clickable-row');
+        rows.forEach(row => {
+            row.addEventListener('click', () => {
+                const href = row.getAttribute('data-href');
+                if (href) {
+                    window.open(href, '_blank');
+                }
+            });
+        });
+    });
+</script>
+
+<style>
+    .clickable-row { cursor: pointer; }
+</style>
+
+{% endblock %}

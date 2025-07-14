@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% block title %}GED{% endblock %}</title>
+  <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+    {% if session.get('user_id') %}
+      <a class="navbar-brand" href="/home">Home</a>
+    {% endif %}
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarConteudo" aria-controls="navbarConteudo" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarConteudo">
+      <ul class="navbar-nav me-auto">
+        {% if session.get('user_id') %}
+          {% if session.get('user_tipo') == 'Administrador' %}
+            <li class="nav-item"><a class="nav-link" href="/usuarios">Usuários</a></li>
+            <li class="nav-item"><a class="nav-link" href="/grupo_pasta">Cadastro de Pastas</a></li>
+          {% endif %}
+          <li class="nav-item"><a class="nav-link" href="/pessoa_fisica">Cadastro de Pessoa Física</a></li>
+          <li class="nav-item"><a class="nav-link" href="/upload_documento">Upload de Documentos</a></li>
+          <li class="nav-item"><a class="nav-link" href="/atualizar_codigo_pessoa">Atualizar Cód. P.F.</a></li>
+        {% endif %}
+      </ul>
+
+      <ul class="navbar-nav ms-auto">
+        {% if session.get('user_id') %}
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-person-circle me-1"></i> {{ session.get('user_login') }}
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+              <li><a class="dropdown-item" href="/alterar_senha">Alterar Senha</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item text-danger" href="/logout">Logout</a></li>
+            </ul>
+          </li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="container mt-4">
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+          {{ message|safe }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fechar"></button>
+        </div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+
+  {% block content %}{% endblock %}
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- TinyMCE com chave válida -->
+<!--<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script> -->
+<script src="https://cdn.tiny.cloud/1/zeumi3qwdv4e5wsefh2l10ilcenz1399ji3wfklq2zitpxbh/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    if (document.querySelector('#descricao_cargo')) {
+      tinymce.init({
+        selector: '#descricao_cargo',
+        plugins: 'advlist autolink lists link charmap preview anchor searchreplace visualblocks code fullscreen insertdatetime table wordcount',
+        toolbar: 'undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat',
+        menubar: false,
+        branding: false,
+        height: 300
+      });
+    }
+  });
+</script>
+
+{% block scripts %}{% endblock %}
+
+<!-- Cookie Consent Banner -->
+<div id="cookie-banner" class="alert alert-light border shadow-sm fixed-bottom m-0 text-center" role="alert" style="display: none;">
+  Nós usamos cookies para melhorar sua experiência de navegação no portal. Ao utilizar este site, você concorda com a nossa 
+  <a href="/politica-privacidade" target="_blank">Política de Privacidade</a>. 
+  <button class="btn btn-primary btn-sm ms-2" onclick="aceitarCookies()">CIENTE</button>
+</div>
+
+<script>
+  function aceitarCookies() {
+    localStorage.setItem('cookie_consent', 'true');
+    document.getElementById('cookie-banner').style.display = 'none';
+  }
+
+  window.addEventListener('DOMContentLoaded', function () {
+    if (!localStorage.getItem('cookie_consent')) {
+      document.getElementById('cookie-banner').style.display = 'block';
+    }
+  });
+</script>
+
+<script>
+  let idleTime = 0;
+  setInterval(() => {
+    idleTime++;
+    if (idleTime >= 14) {
+      alert('Sua sessão será encerrada em 1 minuto por inatividade.');
+    }
+    if (idleTime >= 15) {
+      window.location.href = "/logout";
+    }
+  }, 60000); // a cada 1 minuto
+
+  document.onmousemove = document.onkeypress = () => {
+    idleTime = 0;
+  };
+</script>
+</body>
+</html>

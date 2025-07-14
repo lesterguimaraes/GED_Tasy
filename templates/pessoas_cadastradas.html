@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block title %}Lista de Pacientes{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+  
+  <div class="d-flex justify-content-between align-items-center mt-4 mb-2">
+    <h3 class="mb-0">Lista de Pacientes Cadastradas</h3>
+    <input type="text" id="filtroTabela" class="form-control w-25" placeholder="Filtrar..." onkeyup="filtrarTabela()">
+  </div>
+
+  {% if lista_pessoas %}
+    <table class="table table-bordered table-hover mt-2" id="tabelaPessoas">
+      <thead class="table-light">
+        <tr>
+          <th>ID</th>
+          <th>Código</th>
+          <th>Nome</th>
+          <th>Prontuário</th>
+          <th>Código Anterior</th>
+          <th>Prontuário Anterior</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for p in lista_pessoas %}
+          <tr>
+            <td>{{ p.id_pessoa_fisica }}</td>
+            <td>{{ p.cd_pessoa_fisica }}</td>
+            <td>{{ p.nome_pessoa_fisica }}</td>
+            <td>{{ p.nr_prontuario or '-' }}</td>
+            <td>{{ p.cd_pessoa_fisica_anterior or '-' }}</td>
+            <td>{{ p.nr_prontuario_alterior or '-' }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>Nenhuma pessoa física encontrada.</p>
+  {% endif %}
+
+  <script>
+  function filtrarTabela() {
+    const input = document.getElementById("filtroTabela");
+    const filtro = input.value.toLowerCase();
+    const tabela = document.getElementById("tabelaPessoas");
+    const linhas = tabela.getElementsByTagName("tr");
+
+    for (let i = 1; i < linhas.length; i++) {
+      let visivel = false;
+      const colunas = linhas[i].getElementsByTagName("td");
+
+      for (let j = 0; j < colunas.length; j++) {
+        const texto = colunas[j].textContent.toLowerCase();
+        if (texto.indexOf(filtro) > -1) {
+          visivel = true;
+          break;
+        }
+      }
+
+      linhas[i].style.display = visivel ? "" : "none";
+    }
+  }
+  </script>
+</div>
+{% endblock %}

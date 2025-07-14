@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+{% block title %}Home - GED{% endblock %}
+
+{% block content %}
+<h2 class="mb-4">Bem-vindo ao Sistema!</h2>
+
+<div class="row row-cols-1 row-cols-md-2 g-4">
+
+
+  <div class="col">
+    <div class="card shadow-sm h-100 border-info">
+      <div class="card-body">
+        <h5 class="card-title text-info">Cadastro Paciente</h5>
+        <p class="card-text">Realize o cadastro do paciente no sistema com base no Código de Pessoa Física do Tasy.</p>
+        <a href="/pessoa_fisica" class="btn btn-outline-info">Acessar</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="card shadow-sm h-100 border-info">
+      <div class="card-body">
+        <h5 class="card-title text-info">Envio de Documentos</h5>
+        <p class="card-text">Anexe Documentos .pdf no Cadastro do Paciente.</p>
+        <a href="/upload_documento" class="btn btn-outline-info">Acessar</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="card shadow-sm h-100 border-info">
+      <div class="card-body">
+        <h5 class="card-title text-info">Teste de Layout - Viewer</h5>
+        <p class="card-text">Modelo de como é exibida a página contendo os documentos para os profissionais da assistência.</p>
+        <a href="http://192.168.25.7:7050/viewer?codigo=70095" class="btn btn-outline-info">Acessar</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="card shadow-sm h-100 border-info">
+      <div class="card-body">
+        <h5 class="card-title text-info">Ocupação Hospitalar</h5>
+        <p class="card-text">Lista pacientes internados no momento. Possibilita acessar o GED de forma mais eficiente quando acesso vem do Tasy.</p>
+        <a href="/ocupacao_hospitalar" class="btn btn-outline-info">Acessar</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+{% if session.get('user_tipo') == 'Administrador' %}
+<hr class="my-4">
+
+<div class="row row-cols-1 row-cols-md-2 g-4 mt-0">
+  <div class="col">
+    <div class="card shadow-sm h-100 border-secondary">
+      <div class="card-body">
+        <h5 class="card-title text-secondary">Cadastro de Usuários</h5>
+        <p class="card-text">Adicione e consulte usuários do sistema.</p>
+        <a href="/usuarios" class="btn btn-outline-secondary">Acessar</a>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="col">
+    <div class="card shadow-sm h-100 border-secondary">
+      <div class="card-body">
+        <h5 class="card-title text-secondary">Cadastro de Pastas</h5>
+        <p class="card-text">Cadastre Grupos e Pastas a serem exibidas no GED.</p>
+        <a href="/grupo_pasta" class="btn btn-outline-secondary">Acessar</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="card shadow-sm h-100 border-secondary">
+      <div class="card-body">
+        <h5 class="card-title text-secondary">Cadastro de Empresas</h5>
+        <p class="card-text">Gerencie as empresas disponíveis no sistema.</p>
+        <a href="/empresas" class="btn btn-outline-secondary">Acessar</a>
+      </div>
+    </div>
+  </div>
+
+    <div class="col">
+    <div class="card shadow-sm h-100 border-secondary">
+      <div class="card-body">
+        <h5 class="card-title text-secondary">Atualizar Código Pessoa Física</h5>
+        <p class="card-text">Atualize o código de pessoa física do paciente no GED.</p>
+        <a href="/atualizar_codigo_pessoa" class="btn btn-outline-secondary">Acessar</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="card shadow-sm h-100 border-secondary">
+      <div class="card-body">
+        <h5 class="card-title text-secondary">Sinconizar Pacientes</h5>
+        <p class="card-text">Sincronize pacientes internados no Tasy, realizando o cadastro de pessoal física no GED.</p>
+        <a href="/sincronizar_pacientes" class="btn btn-outline-secondary">Acessar</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="card shadow-sm h-100 border-secondary">
+      <div class="card-body">
+        <h5 class="card-title text-secondary">Logs</h5>
+        <p class="card-text">Visualização do log de sincronização automática de pacientes e log de backup.</p>
+        <a href="/log_sincronizacao" class="btn btn-outline-secondary">Acessar</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+{% endif %}
+
+<hr class="my-4">
+
+<a href="/logout" class="btn btn-danger">Sair</a>
+{% endblock %}

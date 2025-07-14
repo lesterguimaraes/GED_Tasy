@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}Visualizar Documentos{% endblock %}
+
+{% block content %}
+<h2>Documentos de {{ nome_pessoa }}</h2>
+
+{% macro render_grupo(grupo, nivel=0) %}
+  <div class="mb-3" style="margin-left: {{ nivel * 20 }}px;">
+    <div class="card">
+      <div class="card-header">
+        <strong>{{ grupo.nome }}</strong>
+      </div>
+      <ul class="list-group list-group-flush">
+        {% if grupo.documentos %}
+          {% for doc in grupo.documentos %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <span>{{ doc.nome_arquivo }}</span>
+              <div>
+                <a href="{{ url_for('static', filename=doc.caminho_arquivo.split('static/')[-1]) }}" class="btn btn-sm btn-primary" target="_blank">Baixar</a>
+
+                <form action="{{ url_for('excluir_documento', documento_id=doc.id_documento) }}" method="POST" style="display:inline;" onsubmit="return confirm('Tem certeza que deseja excluir este documento?');">
+                  <button type="submit" class="btn btn-sm btn-danger">Excluir</button>
+                </form>
+              </div>
+            </li>
+          {% endfor %}
+        {% else %}
+          <li class="list-group-item">Nenhum documento nesta pasta.</li>
+        {% endif %}
+      </ul>
+    </div>
+
+    {% if grupo.filhos %}
+      {% for filho in grupo.filhos %}
+        {{ render_grupo(filho, nivel + 1) }}
+      {% endfor %}
+    {% endif %}
+  </div>
+{% endmacro %}
+
+{% if grupos %}
+  {% for grupo in grupos %}
+    {{ render_grupo(grupo) }}
+  {% endfor %}
+{% else %}
+  <p>Nenhum documento encontrado para esta pessoa.</p>
+{% endif %}
+
+<a href="{{ url_for('pessoa_fisica') }}" class="btn btn-secondary">Voltar</a>
+{% endblock %}

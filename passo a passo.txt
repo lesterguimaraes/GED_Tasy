@@ -1,0 +1,19 @@
+1 - copia a pasta do projeto para /opt ficando como /opt;get
+2 - monta a partição do GED mount -t cifs //192.168.25.6/GED/ /opt/ged/static/uploads/ -o username=hbm,password=SENHA
+3 - [root@docker-hbm ~]# cd /opt/ged/
+4 - [root@docker-hbm ged]# docker compose up --build -d
+
+5 - arquivos crontab -e
+
+# Backup banco de dados MySQL
+0 2 * * * /opt/vagas_app/scripts/backup_mysql_vagas.sh
+0 2 * * * /opt/ged/scripts/backup_mysql_ged.sh
+
+#Sincroniza paciente GED Oracle x Mysql
+0 3 * * * /opt/ged/scripts/sincronizar.sh
+
+
+#0 2 * * * /opt/vagas_app/renew_cert.sh >> /opt/vagas_app/renew_cert.log 2>&1
+root@docker-s:~# 
+
+

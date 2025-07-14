@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}Enviar Documento{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Enviar Documento PDF</h2>
+
+    <!-- Formulário de busca -->
+    <form method="POST" class="card p-4 shadow-sm mb-4">
+        <input type="hidden" name="acao" value="buscar">
+        <div class="mb-3">
+            <label for="cd_pessoa_fisica" class="form-label">Código da Pessoa Física</label>
+            <input type="number" id="cd_pessoa_fisica" name="cd_pessoa_fisica" class="form-control" placeholder="Digite o código da pessoa" required value="{{ cd_pessoa_fisica or '' }}">
+        </div>
+        <button type="submit" class="btn btn-primary">Buscar</button>
+    </form>
+
+    {% if nome_pessoa %}
+    <!-- Exibe o nome da pessoa -->
+    <div class="alert alert-success">
+        <strong>{{ nome_pessoa }}</strong> encontrado(a).
+    </div>
+
+    <!-- Formulário de envio do documento -->
+    <form method="POST" enctype="multipart/form-data" class="card p-4 shadow-sm">
+        <input type="hidden" name="acao" value="upload">
+        <input type="hidden" name="cd_pessoa_fisica" value="{{ cd_pessoa_fisica }}">
+
+        <div class="mb-3">
+            <label for="id_grupo_documento" class="form-label">Grupo de Documento</label>
+            <select name="id_grupo_documento" class="form-select" required>
+                <option value="">Selecione</option>
+                {% for pasta in pastas %}
+                    <option value="{{ pasta.id_grupo_documento }}">{{ pasta.ds_grupo_documento }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="file" class="form-label">Arquivo PDF</label>
+            <input type="file" class="form-control" name="file" accept=".pdf" required>
+        </div>
+
+        <button type="submit" class="btn btn-success">Enviar Documento</button>
+    </form>
+    {% endif %}
+</div>
+{% endblock %}

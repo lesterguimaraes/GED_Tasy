@@ -1,0 +1,6 @@
+flask
+mysql-connector-python
+oracledb
+werkzeug
+flask-limiter
+python-dotenv

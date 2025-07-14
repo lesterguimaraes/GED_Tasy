@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Documentos - GED</title>
+  <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    ul { padding-left: 1.5rem; }
+    li strong { color: #0d6efd; }
+    li a { text-decoration: none; color: #212529; }
+    li a:hover { text-decoration: underline; }
+    .file-icon { margin-right: 5px; color: #6c757d; }
+    .folder-icon { margin-right: 5px; color: #0d6efd; }
+  </style>
+</head>
+<body>
+
+<div class="container mt-4">
+  <h3 class="mb-4">{{ nome_pessoa }}</h3>
+
+  <ul class="list-unstyled">
+    {% macro loop_grupo(grupo) %}
+      <li class="mb-2">
+        <strong><i class="bi bi-folder-fill folder-icon"></i> {{ grupo.nome }}</strong>
+        <ul class="list-unstyled ms-3 mt-2">
+          {% for doc in grupo.documentos %}
+            <li class="mb-1">
+              <i class="bi bi-file-earmark-text file-icon"></i>
+              <a href="{{ url_for('static', filename=doc.caminho_arquivo.split('static/')[-1]) }}" target="_blank">
+                {{ doc.nome_arquivo }} <small class="text-muted">({{ doc.dt_upload.strftime('%d/%m/%Y %H:%M') }})</small>
+              </a>
+            </li>
+          {% endfor %}
+          {% for filho in grupo.filhos %}
+            {{ loop_grupo(filho) }}
+          {% endfor %}
+        </ul>
+      </li>
+    {% endmacro %}
+
+    {% for grupo in estrutura %}
+      {{ loop_grupo(grupo) }}
+    {% endfor %}
+  </ul>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

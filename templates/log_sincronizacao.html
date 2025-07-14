@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Log de Sincronização{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h3>Log de Sincronização de Pacientes</h3>
+
+    <div class="mt-4">
+        <h5 class="text-primary">Log Atual</h5>
+        {% if log_atual %}
+            <ul class="list-group mb-4" style="max-height: 300px; overflow-y: auto;">
+                {% for linha in log_atual %}
+                    <li class="list-group-item small">{{ linha.strip() }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p class="text-muted">Nenhum conteúdo no log atual.</p>
+        {% endif %}
+    </div>
+
+    <div class="mt-4">
+        <h5 class="text-secondary">Log de Backup</h5>
+        {% if log_backup %}
+            <ul class="list-group mb-4" style="max-height: 300px; overflow-y: auto;">
+                {% for linha in log_backup %}
+                    <li class="list-group-item small">{{ linha.strip() }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p class="text-muted">Nenhum conteúdo no log de backup.</p>
+        {% endif %}
+    </div>
+    <a href="/static/uploads/Documentacao_GED.pdf" download="Documentação">Documentação do Sistema.</a>
+</div>
+{% endblock %}
