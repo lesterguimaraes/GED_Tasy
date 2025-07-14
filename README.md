@@ -1,7 +1,7 @@
-# Documentação Técnica - Sistema GED
+# Documentação Técnica - Sistema GED (Gestão Eletrônica de Documentos dos Pacientes integrado com o Sistema Tasy)
 
 ## Visão Geral
-O sistema GED permite o gerenciamento eletrônico de documentos vinculados a pacientes e empresas.
+O sistema GED permite o gerenciamento eletrônico de documentos vinculados a pacientes. Objetivo é realziar o upload de documentos/exames externos do paciente e serem exibidos no PEP via Tasy.
 
 ## Arquitetura
 - Backend: Python + Flask
@@ -26,7 +26,7 @@ O sistema GED permite o gerenciamento eletrônico de documentos vinculados a pac
 - `/viewer` - Acesso público de documentos
 - `/sincronizar_pacientes` - Execução manual da sincronização
 
-## Banco de Dados
+## Tabelas Banco de Dados
 - `usuarios`, `empresas`, `pessoa_fisica`, `documentos`, `grupo_pasta`
 
 ## Execução Local
@@ -34,4 +34,6 @@ O sistema GED permite o gerenciamento eletrônico de documentos vinculados a pac
 docker-compose up --build
 ```
 
-Acesse: http://localhost:7050
+Acesse: http://Ip_do_servidor:7050
+login: admin
+senha: 123456
