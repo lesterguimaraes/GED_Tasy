@@ -1,7 +1,7 @@
 0 - Crie o arquivo .env na pasta do projeto:
 
 # chave secreta Flask (gerada aleatoriamente)
-SECRET_KEY=04e197f624c1a202d02f15f0e7a88ab636bf8375373f9017
+SECRET_KEY=chave
 
 # MySQL
 MYSQL_ROOT_PASSWORD=123456
@@ -24,4 +24,10 @@ crontab -e
 #Sincroniza paciente GED Oracle x Mysql
 0 3 * * * /opt/ged/scripts/sincronizar.sh
 
+
+9 - docker compose up --build -d
+
+10 - http://Ip_do_Servidor:7050
+login: admin
+senha: 123456
 
