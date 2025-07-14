@@ -1,19 +1,27 @@
+0 - Crie o arquivo .env na pasta do projeto:
+
+# chave secreta Flask (gerada aleatoriamente)
+SECRET_KEY=04e197f624c1a202d02f15f0e7a88ab636bf8375373f9017
+
+# MySQL
+MYSQL_ROOT_PASSWORD=123456
+MYSQL_DATABASE=ged
+
+# Oracle
+DB_USER=
+DB_PASSWORD=
+DB_DSN=Ip_Oracla:1521/Nome_DB
+
 1 - copia a pasta do projeto para /opt ficando como /opt;get
-2 - monta a partição do GED mount -t cifs //192.168.25.6/GED/ /opt/ged/static/uploads/ -o username=hbm,password=SENHA
+2 - monta a partição do GED mount -t cifs //Ip_servidor_Samba/GED/ /opt/ged/static/uploads/ -o username=Usuario_Samba,password=SENHA
 3 - [root@docker-hbm ~]# cd /opt/ged/
 4 - [root@docker-hbm ged]# docker compose up --build -d
 
-5 - arquivos crontab -e
-
+5 - agenda as tarefas no cron 
+crontab -e
 # Backup banco de dados MySQL
-0 2 * * * /opt/vagas_app/scripts/backup_mysql_vagas.sh
 0 2 * * * /opt/ged/scripts/backup_mysql_ged.sh
-
 #Sincroniza paciente GED Oracle x Mysql
 0 3 * * * /opt/ged/scripts/sincronizar.sh
-
-
-#0 2 * * * /opt/vagas_app/renew_cert.sh >> /opt/vagas_app/renew_cert.log 2>&1
-root@docker-s:~# 
 
 
