@@ -1,29 +1,19 @@
 #!/bin/bash
 
-#CONTAINER_NAME="ged_db"
-#DB_NAME="ged"
-#DB_USER="backupuser"
-#DB_PASS="backup123"
-#BACKUP_DIR="/opt/ged/scripts/backup_banco"
-#BACKUP_DIR_SAMBA="/opt/backups-mysql"
-#LOG_FILE="/opt/ged/logs/log_backup.log"
-#BACKUP_TEMP_FILE="/tmp/backup.sql"
-#BACKUP_FINAL_FILE="backup_ged_$(date +%d%m%Y_%H%M%S).sql"
-#MAX_BACKUPS=5
-SAMBA_MOUNT="//192.168.25.6/Backup_Mysql"
-SAMBA_USER="hbm"
-SAMBA_PASS="rede125521hbm@2024ç"
-
 CONTAINER_NAME="ged_db"
 DB_NAME="ged"
-DB_USER="root"
-DB_PASS="123456"
+DB_USER="usuario_banco"
+DB_PASS="senha"
 BACKUP_DIR="/opt/backups-mysql/"
 BACKUP_DIR_SAMBA="/opt/backups-mysql"
 LOG_FILE="/var/www/html/scripts/logs/log_backup_ged.log"
 BACKUP_TEMP_FILE="/tmp/backup.sql"
 BACKUP_FINAL_FILE="backup_ged_$(date +%d%m%Y_%H%M%S).sql"
 MAX_BACKUPS=3
+
+SAMBA_MOUNT="//Ip_servidor_Samba/Backup_Mysql"
+SAMBA_USER="Usuario_samba"
+SAMBA_PASS="Senha_samba"
 
 # Garante que diretórios e arquivos de log existem
 mkdir -p "$BACKUP_DIR"
